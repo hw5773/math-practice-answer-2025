@@ -41,7 +41,21 @@ def truth_table(expression):
     return combinations
 
 def print_truth_table(expression):
-    raise NotImplementedError
+    table = truth_table(expression)
+    lst = extract_variables(expression)
+
+    # line 1
+    print ("|", end="")
+    for v in lst:
+        print("\t{}\t|".format(v), end="")
+    print ("\t{}\t|".format(expression))
+
+    for row in table:
+        print ("|", end="")
+        for val in row:
+            print("\t{}\t|".format(val), end="")
+        print ("")
+
 
 def command_line_args():
     parser = argparse.ArgumentParser()
