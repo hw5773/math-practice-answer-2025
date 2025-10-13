@@ -24,7 +24,19 @@ def get_cardinality(a):
 # TODO: the function returns the power set of a given set
 # list -> list of list
 def generate_power_set(a):
-    raise NotImplementedError
+    if len(a) == 0:
+        return [[]]
+    else:
+        ret = []
+        e = a[0]
+        b = a[1:]
+        ps = generate_power_set(b)
+        for s in ps:
+            ret.append(s)
+            t = copy.copy(s)
+            t.append(e)
+            ret.append(t)
+        return ret
 
 # TODO: the function returns the cartesian product of two given sets
 # list * list -> list of pairs
